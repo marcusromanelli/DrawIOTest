@@ -15,6 +15,7 @@ public class DirectionController : InputController
     private bool                    m_IsMoving;
     private Vector3                 m_InputPos;
     private Vector3                 m_CenterPos;
+    private Vector3                 m_CenterOffset;
     private Vector3                 m_PosBuffer;
     private Plane                   m_InputPlane;
 
@@ -37,9 +38,9 @@ public class DirectionController : InputController
             _WorldPos = inputRay.GetPoint(enterDistance);
     }
 
-    public void SetCenter(Vector3 newCenter)
+    public void SetCenterOffet(Vector3 direction)
     {
-        m_CenterPos = newCenter;
+        m_CenterOffset = direction;
     }
 
     void StartMove()
@@ -68,6 +69,8 @@ public class DirectionController : InputController
             GetPos(m_InputPos, ref m_CenterPos);
             GetPos(Input.mousePosition, ref m_PosBuffer);
 
+            m_CenterPos += m_CenterOffset;
+
             Vector3 diff = m_PosBuffer - m_CenterPos;
             float distToCenter = diff.magnitude;
             if (distToCenter < m_MinDistance)
@@ -80,7 +83,7 @@ public class DirectionController : InputController
         if (Input.GetMouseButtonUp(0))
         {
             m_IsMoving = false;
-            m_CenterPos = Vector3.zero;
+            m_CenterOffset = Vector3.zero;
             m_DirectionController.OnEndMove();
         }
     }
@@ -88,6 +91,8 @@ public class DirectionController : InputController
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-		Gizmos.DrawRay(new Ray(transform.position, m_PosBuffer - m_CenterPos));
+		Gizmos.DrawLine(m_CenterPos, m_PosBuffer);
+
+        Gizmos.DrawCube(m_CenterPos, Vector3.one*2);
     }
 }

@@ -21,7 +21,7 @@ public abstract class Player : MappedObject, IDrawLine
     private const float         c_MaxForce = 250.0f;
 	private const float         c_NearEdgeDistance = 6.0f;
 	private const float			c_FragTimeout = 1.0f;
-	protected const float			c_BounceTimer = 0.2f;
+	protected const float		c_BounceTimer = 1f;
 
 	private enum EBonus
 	{
@@ -318,16 +318,17 @@ public abstract class Player : MappedObject, IDrawLine
 
         var isBehind = Vector3.Dot(transform.forward, targetPosition) < 0;
 
-        if (!isBehind)
+        if (!isBehind && !m_IsBoucing)
             CollidedWithPlayer();
     }
-	private void CollidedWithPlayer(){
-		m_IsBoucing = true;
-		m_BouncingTargetTime = Time.time + c_BounceTimer;
-        CalculateBounceDirection();
+	private void CollidedWithPlayer()
+    {
+        m_IsBoucing = true;
+        m_BouncingTargetTime = Time.time + c_BounceTimer;
+        BouncePlayer();
     }
 
-	protected abstract void CalculateBounceDirection();
+	protected abstract void BouncePlayer();
 
     protected virtual void Kill(Player _Player)
     {

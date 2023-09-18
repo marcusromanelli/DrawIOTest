@@ -41,6 +41,16 @@ public class SelectSkinView : View<SelectSkinView>
         m_MainMenuView.Transition(true);
     }
 
+    protected override void OnOutFinished()
+    {
+        foreach (var element in skinUIElements)
+            element.gameObject.SetActive(false);
+    }
+    protected override void OnPreIn()
+    {
+        foreach (var element in skinUIElements)
+            element.gameObject.SetActive(true);
+    }
     void TryInitialize()
     {
         if (skinUIElements != null)
@@ -56,6 +66,7 @@ public class SelectSkinView : View<SelectSkinView>
             prefab.Setup(skinData, OnClickSkin);
 
             skinUIElements.Add(prefab);
+            prefab.gameObject.SetActive(false);
         }
 
         var currentSelectedSkin = GameManager.Instance.GetPlayerSkin();

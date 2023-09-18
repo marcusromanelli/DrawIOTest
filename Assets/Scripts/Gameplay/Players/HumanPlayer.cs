@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UIElements;
 
 public class HumanPlayer : Player, IDirectionController
 {
@@ -49,7 +50,7 @@ public class HumanPlayer : Player, IDirectionController
         if (m_IsMoving && m_Input.sqrMagnitude > Mathf.Epsilon)
             m_Transform.rotation = Quaternion.LookRotation(m_Input);
 
-		m_Direction = GetInputDirection();
+		m_Direction = m_Transform.forward * m_Input.magnitude;
 
         Vector3 endPos = m_Transform.position + m_Direction * Time.deltaTime;
         ClampPosition(ref endPos);
@@ -65,19 +66,9 @@ public class HumanPlayer : Player, IDirectionController
 		}
 #endif
     }
-    protected virtual Vector3 GetInputDirection()
+    protected override void BouncePlayer()
     {
-		if (m_IsBoucing)
-            m_Transform.forward = -m_Transform.forward;
-
-		return m_Transform.forward * m_Input.magnitude;
-    }
-
-    protected override void CalculateBounceDirection()
-    {
-		m_InputBounceOffset = (m_Transform.forward - (-m_Transform.forward)).normalized;
-
-        m_DirectionController.SetCenter(m_InputBounceOffset);
+        m_DirectionController.SetCenterOffet(m_Input);
     }
 
     protected override void LateUpdate ()
@@ -140,14 +131,6 @@ public class HumanPlayer : Player, IDirectionController
 
 		m_Input = _Offset * GetSpeed();
 	}
-
-
-	void OnDrawGizmos()
-	{
-        Gizmos.color = Color.green;
-
-        Gizmos.DrawLine(transform.position, transform.position + m_Input);
-    }
 
 
     public void OnEndMove()
