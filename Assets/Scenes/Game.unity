@@ -1774,78 +1774,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
         type: 3}
-      propertyPath: Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[2].m_startValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[3].m_startValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[4].m_startValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[2].m_Cheat.m_Key
-      value: ENABLE_SANDBOXING
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[3].m_Cheat.m_Key
-      value: DISABLE_AI
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[4].m_Cheat.m_Key
-      value: DISABLE_POWER_UP
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
       propertyPath: m_presetCheats.Array.data[0].m_DefaultValue
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[2].m_Cheat.m_Name
-      value: Enables Sandbox
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[3].m_Cheat.m_Name
-      value: Disable AI
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[4].m_Cheat.m_Name
-      value: Disable Power Ups
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[2].m_Cheat.m_Description
-      value: Disables elimination
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[3].m_Cheat.m_Description
-      value: Disables AI players
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
-        type: 3}
-      propertyPath: m_presetCheats.Array.data[4].m_Cheat.m_Description
-      value: Disables power ups spawning
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2564c71d52889644990726c3b2a2b4c5, type: 3}
@@ -3088,7 +3018,7 @@ PrefabInstance:
     - target: {fileID: 2313490108796994208, guid: 94932a9a6b4994343bbb63933e54b852,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.4984131
+      value: -0.4989624
       objectReference: {fileID: 0}
     - target: {fileID: 2502021797439161270, guid: 94932a9a6b4994343bbb63933e54b852,
         type: 3}

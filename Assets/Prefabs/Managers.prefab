@@ -759,3 +759,18 @@ MonoBehaviour:
       m_Description: Enables player's  brushes bouncing collision
       m_Key: ENABLE_PLAYER_COLLISION
     m_startValue: 0
+  - m_Cheat:
+      m_Name: Enables Sandbox
+      m_Description: Disables elimination
+      m_Key: ENABLE_SANDBOXING
+    m_startValue: 1
+  - m_Cheat:
+      m_Name: Disable AI
+      m_Description: Disables AI players
+      m_Key: DISABLE_AI
+    m_startValue: 1
+  - m_Cheat:
+      m_Name: Disable Power Ups
+      m_Description: Disables power ups spawning
+      m_Key: DISABLE_POWER_UP
+    m_startValue: 1

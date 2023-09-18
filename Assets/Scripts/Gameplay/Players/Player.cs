@@ -22,8 +22,9 @@ public abstract class Player : MappedObject, IDrawLine
 	private const float         c_NearEdgeDistance = 6.0f;
 	private const float			c_FragTimeout = 1.0f;
 	protected const float		c_BounceTimer = 1f;
+    private const string		c_DisablePowerUpsCheat = "ENABLE_PLAYER_COLLISION";
 
-	private enum EBonus
+    private enum EBonus
 	{
 		SPEED_UP,
 		SIZE_UP
@@ -54,6 +55,7 @@ public abstract class Player : MappedObject, IDrawLine
 	protected List<GameObject>	m_SearchBuffer;
 	private Coroutine           m_SpeedPowerUpCoroutine;
 	private Coroutine           m_SizePowerUpCoroutine;
+	private bool				m_IsBouncingEnabled;
 
 	// Runtime
 	private string				m_PlayerName;
@@ -139,6 +141,7 @@ public abstract class Player : MappedObject, IDrawLine
 		m_PlayerName = _Name;
 		m_WorldPercent = 0.0f;
         m_Level = 0;
+		m_IsBouncingEnabled = CheatManager.GetCheatStatus(c_DisablePowerUpsCheat);
 
 		RegisterMap ();
         
@@ -313,6 +316,9 @@ public abstract class Player : MappedObject, IDrawLine
 		if (!isBounceActive || player == null || player == this || player.isDead)
 			return;
 
+
+		if (!m_IsBouncingEnabled)
+			return;
 
         Vector3 targetPosition = player.transform.position - transform.position;
 
