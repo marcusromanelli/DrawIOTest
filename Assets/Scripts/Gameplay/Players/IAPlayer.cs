@@ -256,12 +256,17 @@ public class IAPlayer : Player
         return false;
     }
 
-    protected override void CalculateBounceDirection()
+    protected override void BouncePlayer()
     {
-        m_BounceDirection = -m_Direction;
+        m_Destination = -m_Destination;
     }
-    
-	bool CloseToEdges() {
+
+    protected override void FinishBounce()
+    {
+        m_Destination = -m_Destination;
+    }
+
+    bool CloseToEdges() {
         return (m_TerrainManager.NearEdge(m_Transform.position, c_WarningEdgeDistance));
 	}
 

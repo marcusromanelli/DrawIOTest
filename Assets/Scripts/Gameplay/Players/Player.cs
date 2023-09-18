@@ -21,7 +21,9 @@ public abstract class Player : MappedObject, IDrawLine
     private const float         c_MaxForce = 250.0f;
 	private const float         c_NearEdgeDistance = 6.0f;
 	private const float			c_FragTimeout = 1.0f;
-	protected const float		c_BounceTimer = 1f;
+	private const float			c_BounceTimer = 0.8f;
+	private const float			c_BounceSpeedModifier = 0.7f;
+    private const float			c_BounceSlowdownTime = 85;
     private const string		c_DisablePowerUpsCheat = "ENABLE_PLAYER_COLLISION";
 
     private enum EBonus
@@ -71,7 +73,7 @@ public abstract class Player : MappedObject, IDrawLine
     protected int               m_Level;
 	private float 				m_Percent;
 	public float 				percent { get { return m_Percent; } }
-	protected bool				m_IsBoucing;
+	protected bool				m_IsBouncing;
     protected float				m_BouncingTargetTime;
 
 	// Bonuses
@@ -176,9 +178,13 @@ public abstract class Player : MappedObject, IDrawLine
 		if (m_IsEliminated)
 			return;
 
-		if (m_IsBoucing && Time.time >= m_BouncingTargetTime) {
-			m_IsBoucing = false;
-		}
+		UpdateSpeed();
+
+        if (m_IsBouncing)
+		{
+			if(Time.time >= m_BouncingTargetTime)
+                FinishBouncing();
+        }
 
         if (m_Invincible)
         {
@@ -324,17 +330,23 @@ public abstract class Player : MappedObject, IDrawLine
 
         var isBehind = Vector3.Dot(transform.forward, targetPosition) < 0;
 
-        if (!isBehind && !m_IsBoucing)
+        if (!isBehind && !m_IsBouncing)
             CollidedWithPlayer();
     }
 	private void CollidedWithPlayer()
     {
-        m_IsBoucing = true;
+        m_IsBouncing = true;
         m_BouncingTargetTime = Time.time + c_BounceTimer;
         BouncePlayer();
     }
+	private void FinishBouncing()
+	{
+		m_IsBouncing = false;
+        FinishBounce();
+    }
 
 	protected abstract void BouncePlayer();
+	protected abstract void FinishBounce();
 
     protected virtual void Kill(Player _Player)
     {
@@ -499,7 +511,24 @@ public abstract class Player : MappedObject, IDrawLine
 
 	protected float GetSpeed()
 	{
-		return Mathf.Clamp(m_Speed, c_MinSpeed, c_MaxSpeed);
+		return m_Speed;
+	}
+	protected float UpdateSpeed()
+	{
+		var targetMultiplier = 1;
+
+		if (!m_IsBouncing)
+		{
+			m_Speed = Mathf.Clamp(m_Speed, c_MinSpeed, c_MaxSpeed);
+
+		}
+		else {
+            targetMultiplier = 0;
+        }			
+
+        m_Speed = Mathf.MoveTowards(m_Speed, m_Speed * targetMultiplier, c_BounceSlowdownTime * Time.deltaTime);
+
+        return m_Speed;
 	}
 
 	public float GetSize()

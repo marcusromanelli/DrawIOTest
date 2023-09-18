@@ -18,8 +18,6 @@ public class HumanPlayer : Player, IDirectionController
 	private bool			        m_IsMoving;
     private string                  m_Cohort;
 	private Vector3			        m_Input;
-	private Vector3 Offset;
-    private Vector3                  m_InputBounceOffset;
 
     protected override void Awake ()
 	{
@@ -69,6 +67,10 @@ public class HumanPlayer : Player, IDirectionController
     protected override void BouncePlayer()
     {
         m_DirectionController.SetCenterOffet(m_Input);
+    }
+    protected override void FinishBounce()
+    {
+        m_DirectionController.SetCenterOffet(Vector3.zero);
     }
 
     protected override void LateUpdate ()
