@@ -1774,7 +1774,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
         type: 3}
+      propertyPath: m_presetCheats.Array.data[0].m_Cheat
+      value: 
+      objectReference: {fileID: 11400000, guid: cb43accd0e73740ed98dce80be8072d7,
+        type: 2}
+    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
+        type: 3}
+      propertyPath: m_presetCheats.Array.data[1].m_Cheat
+      value: 
+      objectReference: {fileID: 11400000, guid: 8218456acfddf4873992971a9e3b760c,
+        type: 2}
+    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
+        type: 3}
+      propertyPath: m_presetCheats.Array.data[2].m_Cheat
+      value: 
+      objectReference: {fileID: 11400000, guid: 607ded9dafa094461b277b4e25de8943,
+        type: 2}
+    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
+        type: 3}
+      propertyPath: m_presetCheats.Array.data[3].m_Cheat
+      value: 
+      objectReference: {fileID: 11400000, guid: c32535293ae234349b9bdcfc2e622d63,
+        type: 2}
+    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
+        type: 3}
+      propertyPath: m_presetCheats.Array.data[4].m_Cheat
+      value: 
+      objectReference: {fileID: 11400000, guid: 89ea14b83abe34706925f42704663367,
+        type: 2}
+    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
+        type: 3}
+      propertyPath: m_presetCheats.Array.data[0].m_startValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
+        type: 3}
       propertyPath: m_presetCheats.Array.data[1].m_startValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
+        type: 3}
+      propertyPath: m_presetCheats.Array.data[2].m_startValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
+        type: 3}
+      propertyPath: m_presetCheats.Array.data[4].m_startValue
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5915745024512483434, guid: 2564c71d52889644990726c3b2a2b4c5,
@@ -3028,7 +3073,7 @@ PrefabInstance:
     - target: {fileID: 2313490108796994208, guid: 94932a9a6b4994343bbb63933e54b852,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.5003052
+      value: -0.4993286
       objectReference: {fileID: 0}
     - target: {fileID: 2502021797439161270, guid: 94932a9a6b4994343bbb63933e54b852,
         type: 3}

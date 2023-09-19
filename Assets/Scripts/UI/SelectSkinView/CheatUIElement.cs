@@ -12,10 +12,10 @@ public class CheatUIElement : MonoBehaviour
     [SerializeField] Toggle m_toggle;
 
 
-    CheatManager.CheatData m_cheatData;
+    CheatData m_cheatData;
     string m_cheatKey;
 
-    public void Setup(CheatManager.CheatData _CheatData)
+    public void Setup(CheatData _CheatData)
     {
         this.m_cheatData = _CheatData;
 

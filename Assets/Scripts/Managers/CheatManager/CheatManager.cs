@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Runtime.CompilerServices;
-using static CheatManager;
-using Newtonsoft.Json.Linq;
 
 [DefaultExecutionOrder(-1)]
 public class CheatManager : PersistentSingleton<CheatManager>
@@ -14,21 +10,6 @@ public class CheatManager : PersistentSingleton<CheatManager>
     {
         public CheatData m_Cheat;
         public bool m_startValue;
-    }
-    [Serializable]
-    public struct CheatData
-    {
-        public string m_Name;
-        public string m_Description;
-        public string m_Key;
-
-        public CheatData(string m_Key)
-        {
-            this.m_Key = m_Key; 
-            this.m_Description = ""; 
-            this.m_Name = ""; 
-        }
-        public bool IsValid() => m_Key != null;
     }
 
     public delegate void HandleOnCheatTrigger(bool newValue);
@@ -46,6 +27,7 @@ public class CheatManager : PersistentSingleton<CheatManager>
 
     [SerializeField] bool Enabled = true;
     [SerializeField] List<StartCheatData> m_presetCheats = new List<StartCheatData>();
+    [SerializeField] List<CheatData> m_newpresetCheats = new List<CheatData>();
 
     Dictionary<CheatData, bool> m_cheatList = new Dictionary<CheatData, bool>();
     Dictionary<string, List<Action<bool>>> m_cheatTriggers = new Dictionary<string, List<Action<bool>>>();
@@ -173,10 +155,7 @@ public class CheatManager : PersistentSingleton<CheatManager>
         foreach (var data in m_cheatList.Keys)
             if (cheatData == data.m_Key)
                 return data;
-
-         return new CheatData();
-#else
-        return null;
 #endif
+        return null;
     }
 }

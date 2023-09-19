@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca57448139916471c8cd2921f0994aaf, type: 3}
-  m_Name: Skin03
+  m_Name: SinBrush1_Cyan
   m_EditorClassIdentifier: Assembly-CSharp::SkinDatas
-  Color: {fileID: 11400000, guid: 5ab809d06a26346a39f8722ffc372de1, type: 2}
+  Color: {fileID: 11400000, guid: f8a73bf7ef08540478d7e2d0702e0742, type: 2}
   Brush: {fileID: 11400000, guid: e848f987341224b059f1a00b0f2e53c3, type: 2}
